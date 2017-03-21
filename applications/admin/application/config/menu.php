@@ -2,6 +2,24 @@
 if(! defined('BASEPATH')) exit('No direct script access allowed');
 $config = array(
     'menu' => array(
+        '商品管理' => array(
+            'code' => 'goods',
+            'class' => 'fa fa-cart-plus',
+            'list' => array(
+                array(
+                    '/goods/class',
+                    '商品分类'
+                ),
+                array(
+                    '/goods',
+                    '商品列表'
+                ),
+                array(
+                    '/goods/order',
+                    '到店预约'
+                )
+            )
+        ),
         '资讯管理' => array(
             'code' => 'news',
             'class' => 'glyphicon glyphicon-book',
