@@ -25,57 +25,7 @@ class Newsclass extends MY_Controller{
      */
     public function index() {
         $data = $this->data;
-    
-        $where = array();
-        if ($this->input->get('name')) {
-            $where['like']['name'] = $this->input->get('name');
-        }
-    
-        if ($this->input->get('parent_id')) {
-            $where['parent_id'] = $this->input->get('parent_id');
-        }
-    
-        if ($this->input->get('is_del')) {
-            $where['is_del'] = $this->input->get('is_del');
-        } else {
-            $where['is_del'] = 0;
-        }
-    
-        $data['name'] = $this->input->get('name');
-        $data['parent_id'] = $this->input->get('parent_id');
-        $data['is_del'] = $this->input->get('is_del');
-    
-        $pageconfig = C('page.config_log');
-        $this->load->library('pagination');
-        //获取当前页页码
-        $page = $this->input->get_post('per_page') ? : '1';
-        $data['lists'] = $this->Mnews_class->get_lists("*", $where, array('create_time' => 'desc'), $pageconfig['per_page'], ($page-1)*$pageconfig['per_page']);
-        $data_count = $this->Mnews_class->count($where);
-        $data['data_count'] = $data_count;
-        $data['page'] = $page;
-    
-        //获取分页
-        //构造带条件查询的分页
-        $urls = array();
-        if(isset($data['parent_id'])){
-            $urls['parent_id'] = $data['parent_id'];
-        }
-        if(isset($data['is_del'])){
-            $urls['is_del'] = $data['is_del'];
-        }
-        $name = trim($this->input->get('name', TRUE));
-        if(isset($name)){
-            $urls['name'] = $name;
-        }
-        $pageconfig['base_url'] = "/News/class_list?".http_build_query($urls);
-        $pageconfig['total_rows'] = $data_count;
-        $this->pagination->initialize($pageconfig);
-        $data['pagestr'] = $this->pagination->create_links(); // 分页信息
-    
-        //父级分类
-        $data['parent_lists'] = $this->Mnews_class->get_lists("id, name", array('parent_id' => 0, 'is_del' => 0));
-        $data['parent_class'] = array_column($data['parent_lists'], 'name', 'id');
-        $this->load->view("news/class", $data);
+        $this->load->view("newsclass/class", $data);
     }
     
     
@@ -88,12 +38,12 @@ class Newsclass extends MY_Controller{
         if (IS_POST) {
             $name = trim($this->input->post("name", TRUE));
             if(empty($name)){
-                $this->error("分类名称不能为空！", "/news/class_list");
+                $this->error("分类名称不能为空！", "/Newsclass/class_list");
                 exit();
             }
             $parent_id = (int) (trim($this->input->post("parent_id", TRUE)));
             if($this->check_cate_exists($name, $parent_id)){
-                $this->error("分类名称已经存在！", "/news/class_list");
+                $this->error("分类名称已经存在！", "/Newsclass/class_list");
                 exit();
             }
             $post_data = array('name' => $name, 'parent_id' => $parent_id,'is_del' => 0);
@@ -101,9 +51,9 @@ class Newsclass extends MY_Controller{
             $post_data['create_time'] = $post_data['update_time'] = date('Y-m-d H:i:s');
             $id = $this->Mnews_class->create($post_data);
             if ($id) {
-                $this->success("添加成功！", "/news/class_list");
+                $this->success("添加成功！", "/Newsclass/class_list");
             } else {
-                $this->error("添加失败！请重试", "/news/class_list");
+                $this->error("添加失败！请重试", "/Newsclass/class_list");
             }
         } else {
             $data['parent_class'] = $this->Mnews_class->get_lists("id, name", array('parent_id' => 0, 'is_del' => 0));
@@ -122,9 +72,9 @@ class Newsclass extends MY_Controller{
             $post_data['update_time'] = date('Y-m-d H:i:s');
             $res = $this->Mnews_class->update_info($post_data, array('id' => $post_data['id']));
             if ($res) {
-                $this->success("修改成功！", "/news/class_list");
+                $this->success("修改成功！", "/Newsclass/class_list");
             } else {
-                $this->success("修改失败！请重试！", "/news/class_list");
+                $this->success("修改失败！请重试！", "/Newsclass/class_list");
             }
         } else {
             $data['id'] = $id;
@@ -141,9 +91,9 @@ class Newsclass extends MY_Controller{
     public function del_class($id, $state) {
         $res = $this->Mnews_class->update_info(array('is_del' => $state), array('id' => $id));
         if ($res) {
-            $this->success("操作成功！", "/news/class_list");
+            $this->success("操作成功！", "/Newsclass/class_list");
         } else {
-            $this->success("操作失败！请重试！", "/news/class_list");
+            $this->success("操作失败！请重试！", "/Newsclass/class_list");
         }
     }
     
