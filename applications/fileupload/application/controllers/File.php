@@ -30,7 +30,7 @@ class File extends MY_Controller{
     public function upload_php(){
         $file_dir = $this->input->post('type') == 'image' ? 'image/' : 'video/';
         $config = array(
-            'upload_path'   => '../uploads/'.$file_dir,
+            'upload_path'   => '../../uploads/'.$file_dir,
             'allowed_types' => 'gif|jpg|jpeg|png|bmp|swf|flv|doc|docx|xls|xlsx|ppt|mp4',
 //             'max_size'     => 1024*20,
             'encrypt_name' => TRUE,
