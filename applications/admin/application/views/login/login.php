@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=8" > 
-    <title>欢迎登录后台管理系统--惠民安居</title>
+    <title>欢迎登录后台管理系统</title>
     <link href="<?php echo css_js_url('style2.css', 'admin');?>" type="text/css" rel="stylesheet"/>
     <link href="<?php echo css_js_url('admin.css', 'admin');?>" type="text/css" rel="stylesheet"/>
     <link href="<?php echo css_js_url('ui-dialog.css', 'common');?>" type="text/css" rel="stylesheet"/>
@@ -30,7 +30,7 @@
         </ul>
     </div>
 </div>
-<div class="loginbm">版权所有  2016-2020</div>
+<div class="loginbm">版权所有  2016-<?php echo date('Y')?></div>
 <script src="<?php echo css_js_url('sea.js','common');?>"></script>
 <script type="text/javascript">
     seajs.config({

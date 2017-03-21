@@ -1,8 +1,8 @@
 <div class="footer">
 	<div class="pull-right">
-		By：<a href="http://www.yuecheke.cn" target="_blank">约车客</a>
+		By：<a href="<?php echo $domain['base']['url']?>" target="_blank">周大福</a>
 	</div>
 	<div>
-		<strong>Copyright</strong> 约车客 &copy; <?php echo date('Y');?>
+		<strong>Copyright</strong> 周大福 &copy; <?php echo date('Y');?>
                     </div>
 </div>

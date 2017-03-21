@@ -12,8 +12,7 @@ class News extends MY_Controller{
              'Model_news' => 'Mnews',
              'Model_news_class' => 'Mnews_class',
              'Model_admins' => 'Madmins',
-             'Model_user' => 'Muser',
-             'Model_news_comment' => 'Mnews_comment'
+             'Model_user' => 'Muser'
         ]);
     }
     
