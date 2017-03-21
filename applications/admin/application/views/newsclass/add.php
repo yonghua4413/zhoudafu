@@ -2,48 +2,29 @@
             <!-- right main -->
             <div class=row>
              <div class="ibox-content">
-                    <form class="form-horizontal" action="/manual/add" method="post">
+                    <form class="form-horizontal" action="/newsclass/add" method="post">
                         <p>欢迎登录本站(⊙o⊙)</p>
                         
                         
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">手工位置：</label>
+                            <label class="col-sm-3 control-label">父级分类：</label>
                             <div class="col-sm-3">
-                                <select class="form-control" name="manual_class_id">
+                                <select class="form-control" name="parent_id">
                                     <option value='0'>--请选择--</option>
-                                    <?php foreach ($manual_class as $k=>$v) :?>
-                                        <option value="<?php echo $v['id']?>" <?php if($v['id']==$manual_class_id):?>selected="true"<?php endif;?>><?php echo $v['name']?></option>
+                                    <?php foreach ($parent_class as $k=>$v) :?>
+                                        <option value="<?php echo $v['id']?>">--<?php echo $v['name']?>--</option>
                                     <?php endforeach;?>
                                 </select>
                             </div>
                         </div>
                         
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">标题：</label>
+                            <label class="col-sm-3 control-label">分类名称：</label>
 
                             <div class="col-sm-4">
-                                <input type="text" placeholder="标题" class="form-control" name="title">
+                                <input type="text" placeholder="分类名称" class="form-control" name="name">
                             </div>
                         </div>
-                        
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">链接地址：</label>
-
-                            <div class="col-sm-4">
-                                <input type="text" placeholder="链接地址" class="form-control" name="url">
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-			                 <label class="col-sm-3 control-label">导读图片:</label>
-			                 <div class="col-sm-9">
-				                <ul id="uploader_img_url">
-	                               <li class="pic pic-add add-pic" style="float: left;width: 220px;height: 175px;clear:none; list-style-type:none">
-	                                   <a href="javascript:;" class="up-img"  id="btn_img_url"><span>+</span><br>添加照片</a>
-	                               </li>
-	                            </ul>
-			                 </div>
-		                 </div>
                         
                         <div class="form-group">
                             <label class="col-sm-3 control-label">排序：</label>
@@ -54,18 +35,8 @@
                         </div>
                         
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">简介：</label>
-
-                            <div class="col-sm-4">
-                                <textarea  class="form-control" name="summary" style="height:200px"></textarea>
-                                
-                            </div>
-                        </div>
-                        
-                        
-                        <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-8">
-                                <button class="btn btn-sm btn-white" type="submit">添加</button>
+                                <button class="btn btn-primary" type="submit">保存</button>
                             </div>
                         </div>
                     </form>
