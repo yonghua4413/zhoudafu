@@ -8,7 +8,7 @@
 		</div>
 		<ul class="nav navbar-top-links navbar-right">
 			<li><span class="m-r-sm text-muted welcome-message"><a
-					href="/" title="返回首页"><i class="fa fa-home"></i></a>欢迎使用PHP学院后台管理系统</span>
+					href="/" title="返回首页"><i class="fa fa-home"></i></a>欢迎使用周大福后台管理系统</span>
 			</li>
 			<li><a href="/login/out"> <i class="fa fa-sign-out"></i> 退出
 			</a></li>

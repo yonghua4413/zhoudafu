@@ -9,7 +9,7 @@
         <!-- 启用360浏览器的极速模式 -->
     <meta name="renderer" content="webkit">
 
-    <title>PHP学院 - 后台主页</title>
+    <title>周大福 - 后台主页</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
 
