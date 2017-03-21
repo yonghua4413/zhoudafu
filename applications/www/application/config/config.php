@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | environments.
 |
 */
-$config['base_url'] = 'http://admin.dev.zhoudafu.com/';
+$config['base_url'] = 'http://www.dev.zhoudafu.com/';
 
 /*
 |--------------------------------------------------------------------------
@@ -361,7 +361,7 @@ $config['encryption_key'] = '7e57be753cc86cb8cf7aa7ee31aa7f83';
 $config['sess_driver'] = 'files';  //使用的存储 session 的驱动
 $config['sess_cookie_name'] = 'zh_session'; //session cookie 的名称
 $config['sess_expiration'] = 0; //你希望 session 持续的秒数 如果你希望 session 不过期（直到浏览器关闭），将其设置为 0 单位是秒
-$config['sess_save_path'] = '/tmp/yangyonghua'; //指定存储位置，取决于使用的存储 session 的驱动
+$config['sess_save_path'] = '/tmp/zhoudafu'; //指定存储位置，取决于使用的存储 session 的驱动
 $config['sess_match_ip'] = FALSE; //读取 session cookie 时，是否验证用户的 IP 地址 注意有些 ISP 会动态的修改 IP ，所以如果你想要一个不过期的 session，将其设置为 FALSE
 $config['sess_time_to_update'] = 300; //该选项用于控制过多久将重新生成一个新 session ID 设置为 0 将禁用 session ID 的重新生成 单位是秒
 $config['sess_regenerate_destroy'] = TRUE; //当自动重新生成 session ID 时，是否销毁老的 session ID 对应的数据 如果设置为 FALSE ，数据之后将自动被垃圾回收器删除
